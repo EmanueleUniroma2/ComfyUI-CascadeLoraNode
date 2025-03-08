@@ -1,6 +1,7 @@
 # ComfyUI-CascadeLoraNode
-A custom node to quickly apply many loras without need to add many nodes
-This is way easier to integrate into your comfy install by a quick manual copy-paste.
+A custom node to quickly apply many loras without need to add many load lora nodes:
+![image](https://github.com/user-attachments/assets/40a39c3b-b829-41c3-bfc0-dcc40b6057c7)
+
 
 # How to install
 Just add these to the declarations in your comfy ui nodes.py
