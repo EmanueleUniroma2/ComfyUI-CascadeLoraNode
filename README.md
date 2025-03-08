@@ -15,4 +15,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
   "LoraCascadeModelApplyNode": "Lora Cascade Model Apply",
 }
 
-Then manually add the content of the file on top (or anywhere you like) of the nodes.py files inside your comfyUI root.
+Then manually add the content of **LoraCascadeModelApplyNode.py** the file on top (or anywhere you like) of the nodes.py files inside your comfyUI root.
