@@ -1,4 +1,5 @@
 # copy paste this into your ypur nodes.py inside the comfyUi root
+
 class LoraCascadeModelApplyNode:
     MAX_GROUPS = 6
 
@@ -29,7 +30,7 @@ class LoraCascadeModelApplyNode:
 
             inputs["required"][model_weight_key] = (
                 "FLOAT",
-                {"default": 1, "min": 0.0, "max": 2.0, "step":0.1, "round": 0.01, "tooltip": f"Clip and Model weight for lora {i}."}
+                {"default": 1, "min": 0.0, "max": 2.0, "step":0.1, "round": 0.01, "tooltip": f"Model weight for lora {i}."}
             )
 
             inputs["required"][model_enabled_key] = (
@@ -71,11 +72,16 @@ class LoraCascadeModelApplyNode:
             weight_key = f"weight_{i}"
             enabled_key = f"enabled_{i}"
 
-            if enabled_key:
+            isEnabled = kwargs.get(enabled_key, False)
+
+            if isEnabled:
                 lora_name = kwargs[lora_key]
+                print("Apply lora:", lora_name)
                 # Retrieve the weight for this group.
                 model_weight = kwargs.get(weight_key, 1.0)
-                clip_weight = kwargs.get(weight_key, 1.0)
+
+                # This can become a new input if needed
+                clip_weight = kwargs.get(1.0, 1.0)
 
                 # Resolve the full path and load the LoRA file.
                 lora_path = folder_paths.get_full_path_or_raise("loras", lora_name)
