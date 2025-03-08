@@ -4,7 +4,8 @@ A custom node to quickly apply multiple loras without need to add many load lora
 
 
 # How to install
-Just add these to the declarations in your comfy ui nodes.py
+This node is an extension of already existing nodes in comfy UI, and it was just easier to add it to the vanilla nodes.py rather than creating a custom node package with one node.
+To enable this node, add these names to the mappings declarations in your comfy ui nodes.py
 
 NODE_CLASS_MAPPINGS = {
   ...,
@@ -17,5 +18,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
 }
 
 Then manually add the content of **LoraCascadeModelApplyNode.py** the file on top (or anywhere you like) of the nodes.py files inside your comfyUI root.
-
 The node has a variable MAX_GROUPS that defines how many loras are supported, you can edit that number as you like.
