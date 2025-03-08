@@ -1,4 +1,4 @@
-# ComfyUI-CascadeLoraNode
+# ComfyUI - Lora Cascade Model Apply
 A custom node to quickly apply multiple loras without need to add many load lora nodes:
 ![image](https://github.com/user-attachments/assets/4264f28b-1af5-411f-906c-e2bb23b4a712)
 
