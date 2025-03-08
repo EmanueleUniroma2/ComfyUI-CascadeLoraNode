@@ -1,4 +1,4 @@
-# copy paste this into your ypur nodes.py inside the comfyUi root
+# copy paste this into the nodes.py file inside the comfyUi root.
 
 class LoraCascadeModelApplyNode:
     MAX_GROUPS = 6
