@@ -1,6 +1,6 @@
 # ComfyUI-CascadeLoraNode
 A custom node to quickly apply many loras without need to add many load lora nodes:
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/4264f28b-1af5-411f-906c-e2bb23b4a712)
 
 
 # How to install
