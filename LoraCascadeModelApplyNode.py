@@ -1,5 +1,4 @@
 # copy paste this into the nodes.py file inside the comfyUi root.
-
 class LoraCascadeModelApplyNode:
     MAX_GROUPS = 6
 
@@ -20,7 +19,6 @@ class LoraCascadeModelApplyNode:
             lora_key = f"lora_{i}"
             model_weight_key = f"weight_{i}"
             model_enabled_key = f"enabled_{i}"
-
             inputs["required"][lora_key] = (
                 folder_paths.get_filename_list("loras"),
                 {
@@ -76,19 +74,22 @@ class LoraCascadeModelApplyNode:
 
             if isEnabled:
                 lora_name = kwargs[lora_key]
-                print("Apply lora:", lora_name)
+
                 # Retrieve the weight for this group.
                 model_weight = kwargs.get(weight_key, 1.0)
 
                 # This can become a new input if needed
                 clip_weight = kwargs.get(1.0, 1.0)
 
-                # Resolve the full path and load the LoRA file.
-                lora_path = folder_paths.get_full_path_or_raise("loras", lora_name)
-                lora = comfy.utils.load_torch_file(lora_path, safe_load=True)
+                if(model_weight > 0):
+                    print("Apply lora:", lora_name)
 
-                # Apply the LoRA to both the diffusion (model) and CLIP models.
-                model, clip = comfy.sd.load_lora_for_models(model, clip, lora, model_weight, clip_weight)
+                    # Resolve the full path and load the LoRA file.
+                    lora_path = folder_paths.get_full_path_or_raise("loras", lora_name)
+                    lora = comfy.utils.load_torch_file(lora_path, safe_load=True)
+
+                    # Apply the LoRA to both the diffusion (model) and CLIP models.
+                    model, clip = comfy.sd.load_lora_for_models(model, clip, lora, model_weight, clip_weight)
 
             i += 1
 
